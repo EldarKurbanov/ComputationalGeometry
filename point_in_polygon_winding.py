@@ -1,5 +1,6 @@
 import math
 from point import *
+import matplotlib.pyplot as plt
 
 def is_left(p, p1, p2):
     """
@@ -86,3 +87,14 @@ if __name__ == '__main__':
 
     print(pip_wn(ppgon, point))
     print(pip_wn1(ppgon, point))
+
+    # draw polygons
+    point = Point(6, 8)
+    pgon.append(pgon[0])
+
+    xs, ys = zip(*pgon)
+
+    plt.figure()
+    plt.plot(point[0], point[1], 'ro')
+    plt.plot(xs, ys)
+    plt.show()

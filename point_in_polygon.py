@@ -1,6 +1,6 @@
 import math
 from point import *
-
+import matplotlib.pyplot as plt
 
 def pip_cross(point, pgon):
     """
@@ -48,16 +48,35 @@ if __name__ == "__main__":
                   [10, 50], [8, 8], [4, 50], [0, 10]]
     ppgon = [Point(p[0], p[1]) for p in points]
     inout = lambda pip: "ВНУТРИ" if pip is True else "СНАРУЖИ"
+
+    plt.figure()
+
     point = Point(10, 30)
+    plt.plot(point[0], point[1], 'ro')
+
     print("Точка %s находится %s" % (
         point, inout(pip_cross(point, ppgon)[0])))
     point = Point(10, 20)
+    plt.plot(point[0], point[1], 'ro')
+
     print("Точка %s находится %s" % (
         point, inout(pip_cross(point, ppgon)[0])))
     point = Point(20, 40)
+    plt.plot(point[0], point[1], 'ro')
+
     print("Точка %s находится %s" % (
         point, inout(pip_cross(point, ppgon)[0])))
     point = Point(5, 40)
+    plt.plot(point[0], point[1], 'ro')
+
     print("Точка %s находится %s" % (
         point, inout(pip_cross(point, ppgon)[0])))
+
+    # draw polygons
+    points.append(points[0])
+
+    xs, ys = zip(*points)
+
+    plt.plot(xs, ys)
+    plt.show()
     
