@@ -79,6 +79,7 @@ class Point:
     def distance(self, other):
         return sqrt((self.x - other.x) ** 2 + (self.y - other.y) ** 2)
 
+
 if __name__ == '__main__':
     p1 = Point(2, 3)
     p2 = Point(4, 5)
