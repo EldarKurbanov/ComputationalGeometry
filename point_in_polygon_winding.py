@@ -80,7 +80,7 @@ def pip_wn1(pgon, point):
 
 if __name__ == '__main__':
     pgon = [[2, 3], [7, 4], [6, 6], [4, 2], [11, 5], [5, 11], [2, 3]]
-    point = Point(6, 10)
+    point = Point(6, 4)
 
     ppgon = [Point(p[0], p[1]) for p in pgon]
 
