@@ -40,11 +40,11 @@ def kdtree(points):
     root = kDTreeNode(point=points[0], left=None, right=None)
     for p in points[1:]:
         node = kDTreeNode(point=p, left=None, right=None)
-    p0, lr = query_kdtree(root, p, 0, False)
-    if lr < 0:
-        p0.left = node
-    else:
-        p0.right = node
+        p0, lr = query_kdtree(root, p, 0, False)
+        if lr < 0:
+            p0.left = node
+        else:
+            p0.right = node
     return root
 
 
@@ -57,8 +57,7 @@ def kdtree2(points, depth=0):
     axis = depth % k
     points.sort(key=lambda points: points[axis])
     pivot = len(points) // 2
-    while pivot < len(points) - 1 and \
-            points[pivot][axis] == points[pivot + 1][axis]:
+    while pivot < len(points) - 1 and points[pivot][axis] == points[pivot + 1][axis]:
         pivot += 1
     return kDTreeNode(point=points[pivot],
                       left=kdtree2(points[:pivot],
@@ -81,8 +80,8 @@ def query_kdtree(t, p, depth=0, is_find_only=True):
     if child is None:
         if not is_find_only:
             return t, lr
-    else:
-        return
+        else:
+            return
     return query_kdtree(child, p, depth + 1, is_find_only)
 
 
@@ -92,5 +91,6 @@ if __name__ == '__main__':
     points = [Point(d[0], d[1]) for d in data1]
     t1 = kdtree(points)
     t2 = kdtree2(points)
+
     print([query_kdtree(t1, p) for p in points])
     print([query_kdtree(t2, p) for p in points])
